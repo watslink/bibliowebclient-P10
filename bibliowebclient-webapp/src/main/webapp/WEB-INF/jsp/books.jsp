@@ -32,7 +32,7 @@
                 </c:if>
                 <c:if test = "${book.nbStock==0}">
                     <td class=" col-xs-2"><a href="${pageContext.request.contextPath}/reservation?bookId=${book.bookId}"
-                                             class="btn btn-primary">Réserver</a></td>
+                                             class="btn btn-primary">Réservation...</a></td>
                 </c:if>
             </tr>
         </c:forEach>

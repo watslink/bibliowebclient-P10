@@ -42,9 +42,15 @@ public class ReservationController {
     @GetMapping("/reservation")
     public String extendBorrowing(@RequestParam int bookId, Model model){
         listReservation = reservationServiceAPI.findAllReservationOfBookOrderByDate(bookId);
+        if(listReservation!=null){
+            model.addAttribute("nbResa", listReservation.size());
+        } else {
+            model.addAttribute("nbResa", 0);
+        }
         book = bookServiceAPI.findBookById(bookId);
         model.addAttribute("book", book );
         User user = userServiceAPI.findUserByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        model.addAttribute("user", user);
         listBorrowingOfUser = borrowingServiceAPI.findAllBorrowingOfUser(user.getUserId());
         listBorrowingOfBookOrderByDate = borrowingServiceAPI.findAllBorrowingOfBookOrderByReturnDate(bookId);
 
@@ -56,24 +62,31 @@ public class ReservationController {
     }
 
     private boolean isAlreadyPresent(){
-        for(Borrowing b: listBorrowingOfUser){
-            if(b.getBook().getBookId() == book.getBookId()){
-                return true;
+        if(listBorrowingOfUser!=null){
+            for(Borrowing b: listBorrowingOfUser){
+                if(b.getBook().getBookId() == book.getBookId()){
+                    return true;
+                }
             }
         }
         return false;
     }
 
     private boolean isTooMuchReservation(){
-        if(listReservation.size() < (book.getNbTotalExemplaire()*2)){
-            return false;
+        if(listReservation!=null){
+            if(listReservation.size() >= (book.getNbTotalExemplaire()*2)){
+                return true;
+            }
         }
-       else{
-           return true;
-        }
+           return false;
     }
 
     private Borrowing nextReturnBorrowing(){
-       return listBorrowingOfBookOrderByDate.get(listBorrowingOfBookOrderByDate.size()-1);
+        if(listBorrowingOfBookOrderByDate!=null) {
+            return listBorrowingOfBookOrderByDate.get(0);
+        }
+        else {
+            return null;
+        }
     }
 }
