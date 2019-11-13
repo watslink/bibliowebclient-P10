@@ -1,11 +1,15 @@
 package com.sd.oc.serviceproxy;
 
-import com.sd.oc.serviceproxy.generated.bookAPI.BookAPI;
-import com.sd.oc.serviceproxy.generated.bookAPI.BookServiceAPI;
-import com.sd.oc.serviceproxy.generated.borrowingAPI.BorrowingAPI;
-import com.sd.oc.serviceproxy.generated.borrowingAPI.BorrowingServiceAPI;
-import com.sd.oc.serviceproxy.generated.userAPI.UserAPI;
-import com.sd.oc.serviceproxy.generated.userAPI.UserServiceAPI;
+
+import com.sd.oc.serviceproxy.generated.BorrowingServiceAPI.BorrowingAPI;
+import com.sd.oc.serviceproxy.generated.BorrowingServiceAPI.BorrowingServiceAPI;
+import com.sd.oc.serviceproxy.generated.ReservationServiceAPI.Reservation;
+import com.sd.oc.serviceproxy.generated.ReservationServiceAPI.ReservationAPI;
+import com.sd.oc.serviceproxy.generated.ReservationServiceAPI.ReservationServiceAPI;
+import com.sd.oc.serviceproxy.generated.UserServiceAPI.UserAPI;
+import com.sd.oc.serviceproxy.generated.UserServiceAPI.UserServiceAPI;
+import com.sd.oc.serviceproxy.generated.bookServiceAPI.BookAPI;
+import com.sd.oc.serviceproxy.generated.bookServiceAPI.BookServiceAPI;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -30,5 +34,11 @@ public class ConfigurationServiceAPI {
     public BorrowingServiceAPI borrowingServiceAPI(){
         BorrowingAPI borrowingAPI=new BorrowingAPI();
         return borrowingAPI.getBorrowingServiceAPIPort();
+    }
+
+    @Bean
+    public ReservationServiceAPI reservationServiceAPI(){
+        ReservationAPI reservationAPI=new ReservationAPI();
+        return reservationAPI.getReservationServiceAPIPort();
     }
 }
