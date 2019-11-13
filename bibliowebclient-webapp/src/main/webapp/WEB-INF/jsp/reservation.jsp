@@ -33,8 +33,8 @@
                     <td class="col-xs-4">${nextReturnBorrowing.returnDate}</td>
                 </tr>
                 <tr class="row">
-                    <td> Confirmer la resérvation: </td>
-                    <td class="col-xs-4"><a href="${pageContext.request.contextPath}/reserve?bookId=${book.bookId}&userId=${user.userId}"
+                    <td> Confirmer la réservation: </td>
+                    <td class="col-xs-4"><a href="${pageContext.request.contextPath}/validateReservation?bookId=${book.bookId}&userId=${user.userId}"
                                             class="btn btn-success">Réserver</a></td>
                 </tr>
             </tbody>

@@ -61,6 +61,18 @@ public class ReservationController {
         return "reservation";
     }
 
+    @GetMapping("/validateReservation")
+    public String validateReservation(@RequestParam int bookId, @RequestParam int userId){
+        reservationServiceAPI.addReservation(bookId, userId);
+        return "redirect:/reservationsOfUser?userId="+userId;
+    }
+
+    @GetMapping("/reservationOfUser")
+    public String reservationOfUser (@RequestParam int userId, Model model){
+        model.addAttribute("listReservation", reservationServiceAPI.findAllReservationOfUser(userId));
+        return "reservationOfUser";
+    }
+
     private boolean isAlreadyPresent(){
         if(listBorrowingOfUser!=null){
             for(Borrowing b: listBorrowingOfUser){
