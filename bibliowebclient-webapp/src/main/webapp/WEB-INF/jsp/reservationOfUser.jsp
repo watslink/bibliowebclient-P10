@@ -23,8 +23,8 @@
             <tr class="row">
                 <td class="col-xs-3">${reservation.book.title}</td>
                 <td class="col-xs-4">
-                        <a href="${pageContext.request.contextPath}/detailsReservation?bookId=${reservation.book.bookId}&reservationId=${reservation.reservationId}"
-                           class="btn btn-danger">Détails</a>
+                        <a href="${pageContext.request.contextPath}/detailsReservation?reservationId=${reservation.reservationId}"
+                           class="btn btn-success">Détails</a>
 
                 </td>
             </tr>

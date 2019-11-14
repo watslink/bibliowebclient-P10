@@ -10,9 +10,14 @@
 
 <h1> Réservation du livre: ${book.title}</h1>
 
-<c:if test="${isAlreadyPresent}">
+<c:if test="${isAlreadyPresentinBorrowing}">
     <div class="alert alert-info">
         <p>Vous empruntez actuellement déja ce livre, il ne peut être resérvé.</p>
+    </div>
+</c:if>
+<c:if test="${isAlreadyPresentinReservation}">
+    <div class="alert alert-info">
+        <p>Vous avez déja une réservation pour ce livre.</p>
     </div>
 </c:if>
 <c:if test="${isTooMuchReservation}">
@@ -20,7 +25,7 @@
         <p>La limite de reservation est atteinte, merci de renouveller votre demande ultérieurement.</p>
     </div>
 </c:if>
-<c:if test="${!isTooMuchReservation && !isAlreadyPresent}">
+<c:if test="${!isTooMuchReservation && !isAlreadyPresentinBorrowing &&!isAlreadyPresentinReservation}">
     <div class="container">
         <table class="table table-striped">
             <tbody>

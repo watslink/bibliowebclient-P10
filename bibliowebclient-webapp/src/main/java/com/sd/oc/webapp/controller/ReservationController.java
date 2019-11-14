@@ -36,6 +36,7 @@ public class ReservationController {
 
     private Book book;
     private List<Reservation> listReservation;
+    private List<Reservation> listReservationOfUser;
     private List<Borrowing> listBorrowingOfUser;
     private List<Borrowing> listBorrowingOfBookOrderByDate;
 
@@ -52,9 +53,11 @@ public class ReservationController {
         User user = userServiceAPI.findUserByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("user", user);
         listBorrowingOfUser = borrowingServiceAPI.findAllBorrowingOfUser(user.getUserId());
+        listReservationOfUser = reservationServiceAPI.findAllReservationOfUser(user.getUserId());
         listBorrowingOfBookOrderByDate = borrowingServiceAPI.findAllBorrowingOfBookOrderByReturnDate(bookId);
 
-        model.addAttribute("isAlreadyPresent", isAlreadyPresent());
+        model.addAttribute("isAlreadyPresentinBorrowing", isAlreadyPresentInBorrowing());
+        model.addAttribute("isAlreadyPresentinReservation", isAlreadyPresentInReservation());
         model.addAttribute("isTooMuchReservation", isTooMuchReservation());
         model.addAttribute("nextReturnBorrowing", nextReturnBorrowing());
 
@@ -64,6 +67,12 @@ public class ReservationController {
     @GetMapping("/validateReservation")
     public String validateReservation(@RequestParam int bookId, @RequestParam int userId){
         reservationServiceAPI.addReservation(bookId, userId);
+        return "redirect:/reservationOfUser";
+    }
+
+    @GetMapping("/deleteReservation")
+    public String deleteReservation(@RequestParam int reservationId){
+        reservationServiceAPI.deleteReservation(reservationId);
         return "redirect:/reservationOfUser";
     }
 
@@ -77,19 +86,38 @@ public class ReservationController {
     }
 
     @GetMapping("/detailsReservation")
-    public String detailsReservation (Model model, @RequestParam int bookId, @RequestParam int reservationId){
-        model.addAttribute("reservationId", reservationId);
-        List<Borrowing> listBorrowing = borrowingServiceAPI.findAllBorrowingOfBookOrderByReturnDate(bookId);
+    public String detailsReservation (Model model, @RequestParam int reservationId){
+        Reservation reservation = reservationServiceAPI.findReservation(reservationId);
+        model.addAttribute("reservation", reservation);
+        List<Borrowing> listBorrowing = borrowingServiceAPI.findAllBorrowingOfBookOrderByReturnDate(reservation.getBook().getBookId());
         model.addAttribute("nextReturnBorrowing", listBorrowing.get(0));
-        List<Reservation> listResa = reservationServiceAPI.findAllReservationOfBookOrderByDate(bookId);
+        List<Reservation> listResa = reservationServiceAPI.findAllReservationOfBookOrderByDate(reservation.getBook().getBookId());
+        int position =-1;
+        for(Reservation resa: listResa){
+            if(resa.getReservationId() == reservationId){
+                position = listResa.indexOf(resa)+1;
+            }
+        }
+        model.addAttribute("position", position);
 
         return "detailsReservation";
     }
 
-    private boolean isAlreadyPresent(){
+    private boolean isAlreadyPresentInBorrowing(){
         if(listBorrowingOfUser!=null){
             for(Borrowing b: listBorrowingOfUser){
                 if(b.getBook().getBookId() == book.getBookId()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isAlreadyPresentInReservation(){
+        if(listReservationOfUser!=null){
+            for(Reservation r: listReservationOfUser){
+                if(r.getBook().getBookId() == book.getBookId()){
                     return true;
                 }
             }
