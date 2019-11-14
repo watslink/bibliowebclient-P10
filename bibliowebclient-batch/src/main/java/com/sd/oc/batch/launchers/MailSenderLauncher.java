@@ -18,7 +18,11 @@ public class MailSenderLauncher {
 
     @Autowired
     @Qualifier("mailsenderJob")
-    Job job;
+    Job mailSenderJob;
+
+    @Autowired
+    @Qualifier("reservationsenderJob")
+    Job reservationSenderJob;
 
     @Autowired
     JobLauncher jobLauncher;
@@ -29,7 +33,15 @@ public class MailSenderLauncher {
                 .addLong("currentTime", System.currentTimeMillis())
                 .toJobParameters();
         try {
-            jobLauncher.run(job, parameters);
+            jobLauncher.run(mailSenderJob, parameters);
+        } catch (JobExecutionAlreadyRunningException e) {
+        } catch (JobRestartException e) {
+        } catch (JobInstanceAlreadyCompleteException e) {
+        } catch (JobParametersInvalidException e) {
+        }
+
+        try {
+            jobLauncher.run(reservationSenderJob, parameters);
         } catch (JobExecutionAlreadyRunningException e) {
         } catch (JobRestartException e) {
         } catch (JobInstanceAlreadyCompleteException e) {
