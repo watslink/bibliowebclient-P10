@@ -27,7 +27,7 @@ public class MailSenderLauncher {
     @Autowired
     JobLauncher jobLauncher;
 
-    @Scheduled(cron = "0 11 16 * * *")
+    @Scheduled(cron = "0 0 6 * * *")
     public void scheduleBorrowing() {
         JobParameters parameters = new JobParametersBuilder()
                 .addLong("currentTime", System.currentTimeMillis())
@@ -42,7 +42,7 @@ public class MailSenderLauncher {
 
     }
 
-    @Scheduled(cron = "0 27 16 * * *")
+    @Scheduled(cron = "0 0 6 * * *")
     public void scheduleReservation() {
         JobParameters parameters = new JobParametersBuilder()
                 .addLong("currentTime", System.currentTimeMillis())
