@@ -40,7 +40,7 @@ public class ReservationController {
     private List<Borrowing> listBorrowingOfBookOrderByDate;
 
     @GetMapping("/reservation")
-    public String extendBorrowing(@RequestParam int bookId, Model model){
+    public String reservation(@RequestParam int bookId, Model model){
         listReservation = reservationServiceAPI.findAllReservationOfBookOrderByDate(bookId);
         if(listReservation!=null){
             model.addAttribute("nbResa", listReservation.size());
@@ -64,14 +64,18 @@ public class ReservationController {
     @GetMapping("/validateReservation")
     public String validateReservation(@RequestParam int bookId, @RequestParam int userId){
         reservationServiceAPI.addReservation(bookId, userId);
-        return "redirect:/reservationsOfUser?userId="+userId;
+        return "redirect:/reservationOfUser";
     }
 
     @GetMapping("/reservationOfUser")
-    public String reservationOfUser (@RequestParam int userId, Model model){
-        model.addAttribute("listReservation", reservationServiceAPI.findAllReservationOfUser(userId));
+    public String reservationOfUser (Model model){
+        User user = userServiceAPI.findUserByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        List<Reservation>listReservationOfUser = reservationServiceAPI.findAllReservationOfUser(user.getUserId());
+        model.addAttribute("listReservation", listReservationOfUser);
+
         return "reservationOfUser";
     }
+
 
     private boolean isAlreadyPresent(){
         if(listBorrowingOfUser!=null){
