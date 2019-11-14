@@ -2,6 +2,7 @@ package com.sd.oc.batch;
 
 import com.sd.oc.batch.tasklets.MailSenderTasklet;
 
+import com.sd.oc.batch.tasklets.ReservationSenderTasklet;
 import com.sd.oc.serviceproxy.ConfigurationServiceAPI;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -35,6 +36,9 @@ public class ConfigurationBatch {
     @Autowired
     MailSenderTasklet mailSenderTasklet;
 
+    @Autowired
+    ReservationSenderTasklet reservationSenderTasklet;
+
 
     @Bean
     public Job mailsenderJob(final Step mailsenderStep) {
@@ -42,9 +46,20 @@ public class ConfigurationBatch {
     }
 
     @Bean
+    public Job reservationsenderJob(final Step reservationsenderStep) {
+        return jobBuilderFactory.get("reservationSenderJob").start(reservationsenderStep).build();
+    }
+
+    @Bean
     public Step mailsenderStep(){
         return this.stepBuilderFactory.get("mailSenderStep")
                 .tasklet(mailSenderTasklet).build();
+    }
+
+    @Bean
+    public Step reservationsenderStep(){
+        return this.stepBuilderFactory.get("mailSenderStep")
+                .tasklet(reservationSenderTasklet).build();
     }
 
     @Bean
