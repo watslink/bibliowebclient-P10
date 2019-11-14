@@ -35,7 +35,7 @@ et peuvent être utilisées.
 
 Lancement du batch: executer start.sh dans le dossier bin.
 
-Un mail de relance est envoyé tous les jours à 10h aux utilisateurs n'ayant pas rendu leurs livres dans les délais
+Un mail de relance est envoyé tous les jours à 6h aux utilisateurs n'ayant pas rendu leurs livres dans les délais
 Un mail est envoyé si un livre reservé est à nouveau disponible, la reservation est supprimée après un délai de 48h
 
 
