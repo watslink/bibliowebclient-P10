@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _FindReservationResponse_QNAME = new QName("http://API.oc.sd.com/", "findReservationResponse");
     private final static QName _SetStartDateMailingOfReservation_QNAME = new QName("http://API.oc.sd.com/", "setStartDateMailingOfReservation");
     private final static QName _FindAllBooksResponse_QNAME = new QName("http://API.oc.sd.com/", "findAllBooksResponse");
     private final static QName _DeleteReservation_QNAME = new QName("http://API.oc.sd.com/", "deleteReservation");
@@ -32,6 +33,7 @@ public class ObjectFactory {
     private final static QName _DeleteReservationResponse_QNAME = new QName("http://API.oc.sd.com/", "deleteReservationResponse");
     private final static QName _FindAllReservationOfBookOrderByDate_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationOfBookOrderByDate");
     private final static QName _FindAllReservationsResponse_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationsResponse");
+    private final static QName _FindReservation_QNAME = new QName("http://API.oc.sd.com/", "findReservation");
     private final static QName _SetStartDateMailingOfReservationResponse_QNAME = new QName("http://API.oc.sd.com/", "setStartDateMailingOfReservationResponse");
     private final static QName _FindAllReservationOfBookOrderByDateResponse_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationOfBookOrderByDateResponse");
     private final static QName _Reservation_QNAME = new QName("http://API.oc.sd.com/", "reservation");
@@ -87,6 +89,22 @@ public class ObjectFactory {
      */
     public FindAllBooksResponse createFindAllBooksResponse() {
         return new FindAllBooksResponse();
+    }
+
+    /**
+     * Create an instance of {@link FindReservation }
+     * 
+     */
+    public FindReservation createFindReservation() {
+        return new FindReservation();
+    }
+
+    /**
+     * Create an instance of {@link FindReservationResponse }
+     * 
+     */
+    public FindReservationResponse createFindReservationResponse() {
+        return new FindReservationResponse();
     }
 
     /**
@@ -170,6 +188,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindReservationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "findReservationResponse")
+    public JAXBElement<FindReservationResponse> createFindReservationResponse(FindReservationResponse value) {
+        return new JAXBElement<FindReservationResponse>(_FindReservationResponse_QNAME, FindReservationResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SetStartDateMailingOfReservation }{@code >}}
      * 
      */
@@ -239,6 +266,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "findAllReservationsResponse")
     public JAXBElement<FindAllBooksResponse> createFindAllReservationsResponse(FindAllBooksResponse value) {
         return new JAXBElement<FindAllBooksResponse>(_FindAllReservationsResponse_QNAME, FindAllBooksResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindReservation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "findReservation")
+    public JAXBElement<FindReservation> createFindReservation(FindReservation value) {
+        return new JAXBElement<FindReservation>(_FindReservation_QNAME, FindReservation.class, null, value);
     }
 
     /**

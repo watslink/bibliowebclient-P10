@@ -1,7 +1,7 @@
 package com.sd.oc.webapp.controller;
 
 
-import com.sd.oc.serviceproxy.generated.bookServiceAPI.BookServiceAPI;
+import com.sd.oc.serviceproxy.generated.BookServiceAPI.BookServiceAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

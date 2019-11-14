@@ -6,8 +6,8 @@ import com.sd.oc.serviceproxy.generated.ReservationServiceAPI.Reservation;
 import com.sd.oc.serviceproxy.generated.ReservationServiceAPI.ReservationServiceAPI;
 import com.sd.oc.serviceproxy.generated.UserServiceAPI.User;
 import com.sd.oc.serviceproxy.generated.UserServiceAPI.UserServiceAPI;
-import com.sd.oc.serviceproxy.generated.bookServiceAPI.Book;
-import com.sd.oc.serviceproxy.generated.bookServiceAPI.BookServiceAPI;
+import com.sd.oc.serviceproxy.generated.BookServiceAPI.Book;
+import com.sd.oc.serviceproxy.generated.BookServiceAPI.BookServiceAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -76,6 +76,15 @@ public class ReservationController {
         return "reservationOfUser";
     }
 
+    @GetMapping("/detailsReservation")
+    public String detailsReservation (Model model, @RequestParam int bookId, @RequestParam int reservationId){
+        model.addAttribute("reservationId", reservationId);
+        List<Borrowing> listBorrowing = borrowingServiceAPI.findAllBorrowingOfBookOrderByReturnDate(bookId);
+        model.addAttribute("nextReturnBorrowing", listBorrowing.get(0));
+        List<Reservation> listResa = reservationServiceAPI.findAllReservationOfBookOrderByDate(bookId);
+
+        return "detailsReservation";
+    }
 
     private boolean isAlreadyPresent(){
         if(listBorrowingOfUser!=null){

@@ -1,5 +1,5 @@
 
-package com.sd.oc.serviceproxy.generated.bookServiceAPI;
+package com.sd.oc.serviceproxy.generated.BookServiceAPI;
 
 import java.net.MalformedURLException;
 import java.net.URL;

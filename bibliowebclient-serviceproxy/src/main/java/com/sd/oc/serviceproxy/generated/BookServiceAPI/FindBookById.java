@@ -1,5 +1,5 @@
 
-package com.sd.oc.serviceproxy.generated.bookServiceAPI;
+package com.sd.oc.serviceproxy.generated.BookServiceAPI;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour findBookById complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="findBookById">
@@ -36,7 +36,7 @@ public class FindBookById {
     protected int bookId;
 
     /**
-     * Obtient la valeur de la propriété bookId.
+     * Obtient la valeur de la propriï¿½tï¿½ bookId.
      * 
      */
     public int getBookId() {
@@ -44,7 +44,7 @@ public class FindBookById {
     }
 
     /**
-     * Définit la valeur de la propriété bookId.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ bookId.
      * 
      */
     public void setBookId(int value) {

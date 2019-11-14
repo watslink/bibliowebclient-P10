@@ -1,5 +1,5 @@
 
-package com.sd.oc.serviceproxy.generated.bookServiceAPI;
+package com.sd.oc.serviceproxy.generated.BookServiceAPI;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour book complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="book">
@@ -54,7 +54,7 @@ public class Book {
     protected String title;
 
     /**
-     * Obtient la valeur de la propriété author.
+     * Obtient la valeur de la propriï¿½tï¿½ author.
      * 
      * @return
      *     possible object is
@@ -66,7 +66,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété author.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ author.
      * 
      * @param value
      *     allowed object is
@@ -78,7 +78,7 @@ public class Book {
     }
 
     /**
-     * Obtient la valeur de la propriété bookId.
+     * Obtient la valeur de la propriï¿½tï¿½ bookId.
      * 
      */
     public int getBookId() {
@@ -86,7 +86,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété bookId.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ bookId.
      * 
      */
     public void setBookId(int value) {
@@ -94,7 +94,7 @@ public class Book {
     }
 
     /**
-     * Obtient la valeur de la propriété nbPages.
+     * Obtient la valeur de la propriï¿½tï¿½ nbPages.
      * 
      */
     public int getNbPages() {
@@ -102,7 +102,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété nbPages.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ nbPages.
      * 
      */
     public void setNbPages(int value) {
@@ -110,7 +110,7 @@ public class Book {
     }
 
     /**
-     * Obtient la valeur de la propriété nbStock.
+     * Obtient la valeur de la propriï¿½tï¿½ nbStock.
      * 
      */
     public int getNbStock() {
@@ -118,7 +118,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété nbStock.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ nbStock.
      * 
      */
     public void setNbStock(int value) {
@@ -126,7 +126,7 @@ public class Book {
     }
 
     /**
-     * Obtient la valeur de la propriété nbTotalExemplaire.
+     * Obtient la valeur de la propriï¿½tï¿½ nbTotalExemplaire.
      * 
      */
     public int getNbTotalExemplaire() {
@@ -134,7 +134,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété nbTotalExemplaire.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ nbTotalExemplaire.
      * 
      */
     public void setNbTotalExemplaire(int value) {
@@ -142,7 +142,7 @@ public class Book {
     }
 
     /**
-     * Obtient la valeur de la propriété publishYear.
+     * Obtient la valeur de la propriï¿½tï¿½ publishYear.
      * 
      */
     public int getPublishYear() {
@@ -150,7 +150,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété publishYear.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ publishYear.
      * 
      */
     public void setPublishYear(int value) {
@@ -158,7 +158,7 @@ public class Book {
     }
 
     /**
-     * Obtient la valeur de la propriété title.
+     * Obtient la valeur de la propriï¿½tï¿½ title.
      * 
      * @return
      *     possible object is
@@ -170,7 +170,7 @@ public class Book {
     }
 
     /**
-     * Définit la valeur de la propriété title.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ title.
      * 
      * @param value
      *     allowed object is

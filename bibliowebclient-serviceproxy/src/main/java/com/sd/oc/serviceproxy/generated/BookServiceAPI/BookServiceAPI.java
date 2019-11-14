@@ -1,5 +1,5 @@
 
-package com.sd.oc.serviceproxy.generated.bookServiceAPI;
+package com.sd.oc.serviceproxy.generated.BookServiceAPI;
 
 import java.util.List;
 import javax.jws.WebMethod;
@@ -29,12 +29,12 @@ public interface BookServiceAPI {
      * 
      * @param bookId
      * @return
-     *     returns com.sd.oc.serviceproxy.generated.bookServiceAPI.Book
+     *     returns com.sd.oc.serviceproxy.generated.BookServiceAPI.Book
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findBookById", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.bookServiceAPI.FindBookById")
-    @ResponseWrapper(localName = "findBookByIdResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.bookServiceAPI.FindBookByIdResponse")
+    @RequestWrapper(localName = "findBookById", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.BookServiceAPI.FindBookById")
+    @ResponseWrapper(localName = "findBookByIdResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.BookServiceAPI.FindBookByIdResponse")
     @Action(input = "http://API.oc.sd.com/BookServiceAPI/findBookByIdRequest", output = "http://API.oc.sd.com/BookServiceAPI/findBookByIdResponse")
     public Book findBookById(
         @WebParam(name = "book_id", targetNamespace = "")
@@ -43,12 +43,12 @@ public interface BookServiceAPI {
     /**
      * 
      * @return
-     *     returns java.util.List<com.sd.oc.serviceproxy.generated.bookServiceAPI.Book>
+     *     returns java.util.List<com.sd.oc.serviceproxy.generated.BookServiceAPI.Book>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findAllBooks", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.bookServiceAPI.FindAllBooks")
-    @ResponseWrapper(localName = "findAllBooksResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.bookServiceAPI.FindAllBooksResponse")
+    @RequestWrapper(localName = "findAllBooks", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.BookServiceAPI.FindAllBooks")
+    @ResponseWrapper(localName = "findAllBooksResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.BookServiceAPI.FindAllBooksResponse")
     @Action(input = "http://API.oc.sd.com/BookServiceAPI/findAllBooksRequest", output = "http://API.oc.sd.com/BookServiceAPI/findAllBooksResponse")
     public List<Book> findAllBooks();
 
