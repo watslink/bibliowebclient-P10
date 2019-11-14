@@ -41,8 +41,12 @@ public class ReservationSenderTasklet implements Tasklet {
 
         for (Book book: booklList){
             List<Reservation> reservationList = reservationServiceAPI.findAllReservationOfBookOrderByDate(book.getBookId());
-            if(reservationList!=null && book.getNbStock()>0){
+            if(!reservationList.isEmpty() && book.getNbStock()>0){
                 Reservation nextReservation = reservationList.get(0);
+                if(nextReservation.getDateStartMailing() == null){
+                    reservationServiceAPI.setStartDateMailingOfReservation(nextReservation.getReservationId());
+                }
+                nextReservation = reservationServiceAPI.findReservation(nextReservation.getReservationId());
                 String to=nextReservation.getUser().getMail();
                 String subject="Le Livre "+book.getTitle()+" est disponible";
                 StringBuilder text= new StringBuilder("Bonjour " + nextReservation.getUser().getUsername() + "," + ls+ls

@@ -1,6 +1,6 @@
 package com.sd.oc.batch;
 
-import com.sd.oc.batch.tasklets.MailSenderTasklet;
+import com.sd.oc.batch.tasklets.BorrowingSenderTasklet;
 
 import com.sd.oc.batch.tasklets.ReservationSenderTasklet;
 import com.sd.oc.serviceproxy.ConfigurationServiceAPI;
@@ -34,15 +34,15 @@ public class ConfigurationBatch {
     public StepBuilderFactory stepBuilderFactory;
 
     @Autowired
-    MailSenderTasklet mailSenderTasklet;
+    BorrowingSenderTasklet borrowingSenderTasklet;
 
     @Autowired
     ReservationSenderTasklet reservationSenderTasklet;
 
 
     @Bean
-    public Job mailsenderJob(final Step mailsenderStep) {
-        return jobBuilderFactory.get("mailSenderJob").start(mailsenderStep).build();
+    public Job borrowingsenderJob(final Step borrowingsenderStep) {
+        return jobBuilderFactory.get("mailSenderJob").start(borrowingsenderStep).build();
     }
 
     @Bean
@@ -51,9 +51,9 @@ public class ConfigurationBatch {
     }
 
     @Bean
-    public Step mailsenderStep(){
-        return this.stepBuilderFactory.get("mailSenderStep")
-                .tasklet(mailSenderTasklet).build();
+    public Step borrowingsenderStep(){
+        return this.stepBuilderFactory.get("borrowingSenderStep")
+                .tasklet(borrowingSenderTasklet).build();
     }
 
     @Bean

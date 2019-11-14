@@ -18,7 +18,7 @@ import java.util.List;
 
 
 @Component
-public class MailSenderTasklet implements Tasklet {
+public class BorrowingSenderTasklet implements Tasklet {
 
 
     @Autowired
