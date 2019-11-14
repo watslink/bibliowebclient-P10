@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour findAllBooksResponse complex type.
+ * <p>Classe Java pour findAllReservationsResponse complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="findAllBooksResponse">
+ * &lt;complexType name="findAllReservationsResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://API.oc.sd.com/}book" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://API.oc.sd.com/}reservation" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "findAllBooksResponse", propOrder = {
+@XmlType(name = "findAllReservationsResponse", propOrder = {
     "_return"
 })
-public class FindAllBooksResponse {
+public class FindAllReservationsResponse {
 
     @XmlElement(name = "return")
-    protected List<Book> _return;
+    protected List<Reservation> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class FindAllBooksResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Book }
+     * {@link Reservation }
      * 
      * 
      */
-    public List<Book> getReturn() {
+    public List<Reservation> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<Book>();
+            _return = new ArrayList<Reservation>();
         }
         return this._return;
     }

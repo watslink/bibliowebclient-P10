@@ -1,10 +1,10 @@
 package com.sd.oc.batch.tasklets;
 
 import com.sd.oc.batch.EmailService.EmailService;
-
-
 import com.sd.oc.serviceproxy.generated.BorrowingServiceAPI.Borrowing;
 import com.sd.oc.serviceproxy.generated.BorrowingServiceAPI.BorrowingServiceAPI;
+import com.sd.oc.serviceproxy.generated.ReservationServiceAPI.Reservation;
+import com.sd.oc.serviceproxy.generated.ReservationServiceAPI.ReservationServiceAPI;
 import com.sd.oc.serviceproxy.generated.UserServiceAPI.User;
 import com.sd.oc.serviceproxy.generated.UserServiceAPI.UserServiceAPI;
 import org.springframework.batch.core.StepContribution;
@@ -12,17 +12,13 @@ import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-
-@Component
-public class MailSenderTasklet implements Tasklet {
-
+public class ReservationSenderTasklet implements Tasklet {
 
     @Autowired
-    BorrowingServiceAPI borrowingServiceAPI;
+    ReservationServiceAPI reservationServiceAPI;
 
     @Autowired
     UserServiceAPI userServiceAPI;
@@ -34,7 +30,12 @@ public class MailSenderTasklet implements Tasklet {
 
     @Override
     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-        System.out.println("Batch execute: Borrowing Mail Alert");
+        System.out.println("Batch execute: Reservation Mail Alert");
+
+
+        List<Reservation> reservationList = reservationServiceAPI.findAllReservations();
+
+
 
         List<User> listUser=userServiceAPI.findAllUsers();
         for (User user:listUser) {

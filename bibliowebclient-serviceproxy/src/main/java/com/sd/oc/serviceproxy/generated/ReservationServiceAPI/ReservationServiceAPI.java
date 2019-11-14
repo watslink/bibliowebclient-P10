@@ -42,48 +42,6 @@ public interface ReservationServiceAPI {
 
     /**
      * 
-     * @param userId
-     * @param bookId
-     */
-    @WebMethod
-    @RequestWrapper(localName = "addReservation", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.AddBorrowing")
-    @ResponseWrapper(localName = "addReservationResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.AddBorrowingResponse")
-    @Action(input = "http://API.oc.sd.com/ReservationServiceAPI/addReservationRequest", output = "http://API.oc.sd.com/ReservationServiceAPI/addReservationResponse")
-    public void addReservation(
-        @WebParam(name = "book_id", targetNamespace = "")
-        int bookId,
-        @WebParam(name = "user_id", targetNamespace = "")
-        int userId);
-
-    /**
-     * 
-     * @param reservationId
-     * @return
-     *     returns com.sd.oc.serviceproxy.generated.ReservationServiceAPI.Reservation
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findReservation", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.FindReservation")
-    @ResponseWrapper(localName = "findReservationResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.FindReservationResponse")
-    @Action(input = "http://API.oc.sd.com/ReservationServiceAPI/findReservationRequest", output = "http://API.oc.sd.com/ReservationServiceAPI/findReservationResponse")
-    public Reservation findReservation(
-        @WebParam(name = "reservation_id", targetNamespace = "")
-        int reservationId);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<com.sd.oc.serviceproxy.generated.ReservationServiceAPI.Book>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findAllReservations", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.FindAllBooks")
-    @ResponseWrapper(localName = "findAllReservationsResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.FindAllBooksResponse")
-    @Action(input = "http://API.oc.sd.com/ReservationServiceAPI/findAllReservationsRequest", output = "http://API.oc.sd.com/ReservationServiceAPI/findAllReservationsResponse")
-    public List<Book> findAllReservations();
-
-    /**
-     * 
      * @param reservationId
      */
     @WebMethod
@@ -93,6 +51,18 @@ public interface ReservationServiceAPI {
     public void setStartDateMailingOfReservation(
         @WebParam(name = "reservation_id", targetNamespace = "")
         int reservationId);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<com.sd.oc.serviceproxy.generated.ReservationServiceAPI.Reservation>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findAllReservations", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.FindAllReservations")
+    @ResponseWrapper(localName = "findAllReservationsResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.FindAllReservationsResponse")
+    @Action(input = "http://API.oc.sd.com/ReservationServiceAPI/findAllReservationsRequest", output = "http://API.oc.sd.com/ReservationServiceAPI/findAllReservationsResponse")
+    public List<Reservation> findAllReservations();
 
     /**
      * 
@@ -120,5 +90,35 @@ public interface ReservationServiceAPI {
     public List<Reservation> findAllReservationOfUser(
         @WebParam(name = "user_id", targetNamespace = "")
         int userId);
+
+    /**
+     * 
+     * @param userId
+     * @param bookId
+     */
+    @WebMethod
+    @RequestWrapper(localName = "addReservation", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.AddBorrowing")
+    @ResponseWrapper(localName = "addReservationResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.AddBorrowingResponse")
+    @Action(input = "http://API.oc.sd.com/ReservationServiceAPI/addReservationRequest", output = "http://API.oc.sd.com/ReservationServiceAPI/addReservationResponse")
+    public void addReservation(
+        @WebParam(name = "book_id", targetNamespace = "")
+        int bookId,
+        @WebParam(name = "user_id", targetNamespace = "")
+        int userId);
+
+    /**
+     * 
+     * @param reservationId
+     * @return
+     *     returns com.sd.oc.serviceproxy.generated.ReservationServiceAPI.Reservation
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findReservation", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.FindReservation")
+    @ResponseWrapper(localName = "findReservationResponse", targetNamespace = "http://API.oc.sd.com/", className = "com.sd.oc.serviceproxy.generated.ReservationServiceAPI.FindReservationResponse")
+    @Action(input = "http://API.oc.sd.com/ReservationServiceAPI/findReservationRequest", output = "http://API.oc.sd.com/ReservationServiceAPI/findReservationResponse")
+    public Reservation findReservation(
+        @WebParam(name = "reservation_id", targetNamespace = "")
+        int reservationId);
 
 }

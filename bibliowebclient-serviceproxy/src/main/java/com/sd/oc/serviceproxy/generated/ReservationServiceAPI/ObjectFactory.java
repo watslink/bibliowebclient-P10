@@ -26,9 +26,7 @@ public class ObjectFactory {
 
     private final static QName _FindReservationResponse_QNAME = new QName("http://API.oc.sd.com/", "findReservationResponse");
     private final static QName _SetStartDateMailingOfReservation_QNAME = new QName("http://API.oc.sd.com/", "setStartDateMailingOfReservation");
-    private final static QName _FindAllBooksResponse_QNAME = new QName("http://API.oc.sd.com/", "findAllBooksResponse");
     private final static QName _DeleteReservation_QNAME = new QName("http://API.oc.sd.com/", "deleteReservation");
-    private final static QName _FindAllBooks_QNAME = new QName("http://API.oc.sd.com/", "findAllBooks");
     private final static QName _FindAllReservationOfUserResponse_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationOfUserResponse");
     private final static QName _DeleteReservationResponse_QNAME = new QName("http://API.oc.sd.com/", "deleteReservationResponse");
     private final static QName _FindAllReservationOfBookOrderByDate_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationOfBookOrderByDate");
@@ -84,11 +82,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link FindAllBooksResponse }
+     * Create an instance of {@link FindAllReservationsResponse }
      * 
      */
-    public FindAllBooksResponse createFindAllBooksResponse() {
-        return new FindAllBooksResponse();
+    public FindAllReservationsResponse createFindAllReservationsResponse() {
+        return new FindAllReservationsResponse();
     }
 
     /**
@@ -116,14 +114,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link FindAllBooks }
-     * 
-     */
-    public FindAllBooks createFindAllBooks() {
-        return new FindAllBooks();
-    }
-
-    /**
      * Create an instance of {@link DeleteReservation }
      * 
      */
@@ -137,6 +127,14 @@ public class ObjectFactory {
      */
     public AddBorrowing createAddBorrowing() {
         return new AddBorrowing();
+    }
+
+    /**
+     * Create an instance of {@link FindAllReservations }
+     * 
+     */
+    public FindAllReservations createFindAllReservations() {
+        return new FindAllReservations();
     }
 
     /**
@@ -206,30 +204,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindAllBooksResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "findAllBooksResponse")
-    public JAXBElement<FindAllBooksResponse> createFindAllBooksResponse(FindAllBooksResponse value) {
-        return new JAXBElement<FindAllBooksResponse>(_FindAllBooksResponse_QNAME, FindAllBooksResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeleteReservation }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "deleteReservation")
     public JAXBElement<DeleteReservation> createDeleteReservation(DeleteReservation value) {
         return new JAXBElement<DeleteReservation>(_DeleteReservation_QNAME, DeleteReservation.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindAllBooks }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "findAllBooks")
-    public JAXBElement<FindAllBooks> createFindAllBooks(FindAllBooks value) {
-        return new JAXBElement<FindAllBooks>(_FindAllBooks_QNAME, FindAllBooks.class, null, value);
     }
 
     /**
@@ -260,12 +240,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindAllBooksResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindAllReservationsResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "findAllReservationsResponse")
-    public JAXBElement<FindAllBooksResponse> createFindAllReservationsResponse(FindAllBooksResponse value) {
-        return new JAXBElement<FindAllBooksResponse>(_FindAllReservationsResponse_QNAME, FindAllBooksResponse.class, null, value);
+    public JAXBElement<FindAllReservationsResponse> createFindAllReservationsResponse(FindAllReservationsResponse value) {
+        return new JAXBElement<FindAllReservationsResponse>(_FindAllReservationsResponse_QNAME, FindAllReservationsResponse.class, null, value);
     }
 
     /**
@@ -332,12 +312,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindAllBooks }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindAllReservations }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "findAllReservations")
-    public JAXBElement<FindAllBooks> createFindAllReservations(FindAllBooks value) {
-        return new JAXBElement<FindAllBooks>(_FindAllReservations_QNAME, FindAllBooks.class, null, value);
+    public JAXBElement<FindAllReservations> createFindAllReservations(FindAllReservations value) {
+        return new JAXBElement<FindAllReservations>(_FindAllReservations_QNAME, FindAllReservations.class, null, value);
     }
 
     /**
