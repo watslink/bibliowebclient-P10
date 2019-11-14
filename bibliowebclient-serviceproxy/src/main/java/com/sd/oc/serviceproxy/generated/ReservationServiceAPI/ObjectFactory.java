@@ -32,11 +32,13 @@ public class ObjectFactory {
     private final static QName _FindAllReservationOfBookOrderByDate_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationOfBookOrderByDate");
     private final static QName _FindAllReservationsResponse_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationsResponse");
     private final static QName _FindReservation_QNAME = new QName("http://API.oc.sd.com/", "findReservation");
+    private final static QName _DeleteAllReservationOutOfDateResponse_QNAME = new QName("http://API.oc.sd.com/", "deleteAllReservationOutOfDateResponse");
     private final static QName _SetStartDateMailingOfReservationResponse_QNAME = new QName("http://API.oc.sd.com/", "setStartDateMailingOfReservationResponse");
     private final static QName _FindAllReservationOfBookOrderByDateResponse_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationOfBookOrderByDateResponse");
     private final static QName _Reservation_QNAME = new QName("http://API.oc.sd.com/", "reservation");
     private final static QName _AddReservationResponse_QNAME = new QName("http://API.oc.sd.com/", "addReservationResponse");
     private final static QName _FindAllReservationOfUser_QNAME = new QName("http://API.oc.sd.com/", "findAllReservationOfUser");
+    private final static QName _DeleteAllReservationOutOfDate_QNAME = new QName("http://API.oc.sd.com/", "deleteAllReservationOutOfDate");
     private final static QName _AddBorrowing_QNAME = new QName("http://API.oc.sd.com/", "addBorrowing");
     private final static QName _FindAllReservations_QNAME = new QName("http://API.oc.sd.com/", "findAllReservations");
     private final static QName _AddReservation_QNAME = new QName("http://API.oc.sd.com/", "addReservation");
@@ -71,6 +73,14 @@ public class ObjectFactory {
      */
     public FindAllReservationOfUserResponse createFindAllReservationOfUserResponse() {
         return new FindAllReservationOfUserResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteAllReservationOutOfDateResponse }
+     * 
+     */
+    public DeleteAllReservationOutOfDateResponse createDeleteAllReservationOutOfDateResponse() {
+        return new DeleteAllReservationOutOfDateResponse();
     }
 
     /**
@@ -159,6 +169,14 @@ public class ObjectFactory {
      */
     public Reservation createReservation() {
         return new Reservation();
+    }
+
+    /**
+     * Create an instance of {@link DeleteAllReservationOutOfDate }
+     * 
+     */
+    public DeleteAllReservationOutOfDate createDeleteAllReservationOutOfDate() {
+        return new DeleteAllReservationOutOfDate();
     }
 
     /**
@@ -258,6 +276,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteAllReservationOutOfDateResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "deleteAllReservationOutOfDateResponse")
+    public JAXBElement<DeleteAllReservationOutOfDateResponse> createDeleteAllReservationOutOfDateResponse(DeleteAllReservationOutOfDateResponse value) {
+        return new JAXBElement<DeleteAllReservationOutOfDateResponse>(_DeleteAllReservationOutOfDateResponse_QNAME, DeleteAllReservationOutOfDateResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SetStartDateMailingOfReservationResponse }{@code >}}
      * 
      */
@@ -300,6 +327,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "findAllReservationOfUser")
     public JAXBElement<FindAllReservationOfUser> createFindAllReservationOfUser(FindAllReservationOfUser value) {
         return new JAXBElement<FindAllReservationOfUser>(_FindAllReservationOfUser_QNAME, FindAllReservationOfUser.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteAllReservationOutOfDate }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://API.oc.sd.com/", name = "deleteAllReservationOutOfDate")
+    public JAXBElement<DeleteAllReservationOutOfDate> createDeleteAllReservationOutOfDate(DeleteAllReservationOutOfDate value) {
+        return new JAXBElement<DeleteAllReservationOutOfDate>(_DeleteAllReservationOutOfDate_QNAME, DeleteAllReservationOutOfDate.class, null, value);
     }
 
     /**

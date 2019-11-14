@@ -13,6 +13,8 @@ import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class ReservationSenderTasklet implements Tasklet {
@@ -34,6 +36,15 @@ public class ReservationSenderTasklet implements Tasklet {
 
 
         List<Reservation> reservationList = reservationServiceAPI.findAllReservations();
+
+        for(Reservation resa: reservationList) {
+            if (resa.getBook().getNbStock() > 0){
+                if (resa.getDateStartMailing()==null){
+                    reservationServiceAPI.setStartDateMailingOfReservation(resa.getReservationId());
+                }
+
+            }
+        }
 
 
 
