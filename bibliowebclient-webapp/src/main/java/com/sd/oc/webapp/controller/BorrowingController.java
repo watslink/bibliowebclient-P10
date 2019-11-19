@@ -29,10 +29,11 @@ public class BorrowingController {
         List<Borrowing> borroOfUser = borrowingServiceAPI.findAllBorrowingOfUser(user.getUserId());
         List<Borrowing> borroOutOfDateOfUser = borrowingServiceAPI.findAllBorrowingOutOfTimeOfUser(user.getUserId());
 
-        for(Borrowing borrowing: borroOfUser){
-            for(Borrowing borroOutOfDate: borroOutOfDateOfUser){
-                if(borroOutOfDate == borrowing){
-                    borroOfUser.remove(borrowing);
+        for(Borrowing borroOutOfDate: borroOutOfDateOfUser){
+            for(int i = 0; i<borroOfUser.size(); i++){
+                if(borroOfUser.get(i).getBorrowingId()==(borroOutOfDate.getBorrowingId())){
+                    borroOfUser.remove(i);
+                    i--;
                 }
             }
         }
