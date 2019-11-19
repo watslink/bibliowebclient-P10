@@ -24,9 +24,9 @@
         <c:forEach items="${listBorrowings}" var="borrowing">
             <tr class="row">
                 <td class="col-xs-3">${borrowing.book.title}</td>
-                <td class="col-xs-5">${borrowing.book.author}</td>
-                <td class="col-xs-5">${borrowing.returnDate}</td>
-                <td class="col-xs-4">
+                <td class="col-xs-3">${borrowing.book.author}</td>
+                <td class="col-xs-3">${borrowing.returnDate}</td>
+                <td class="col-xs-3">
                     <c:if test="${!borrowing.extended}">
                         <a href="${pageContext.request.contextPath}/extend?borrowingId=${borrowing.borrowingId}"
                            class="btn btn-primary">Prolonger</a>
@@ -37,9 +37,20 @@
                 </td>
             </tr>
         </c:forEach>
+        <c:forEach items="${listBorrowingsOutOfDate}" var="borrowing">
+            <tr class="row">
+                <td class="col-xs-3">${borrowing.book.title}</td>
+                <td class="col-xs-3">${borrowing.book.author}</td>
+                <td class="col-xs-3">${borrowing.returnDate}</td>
+                <td class="col-xs-3"><strong>Délai dépassé</strong></td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
 </div>
+
+
+
 <%@include file="./include/footer.jsp" %>
 </body>
 </html>
