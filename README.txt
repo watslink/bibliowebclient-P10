@@ -14,7 +14,7 @@ Packagez l'application avec la commande "package mvn"
 Déploiement Application Web
 ----------------------------
 
-Déployez l'artefact "bibliowebclient-webapp-1.0-SNAPSHOT.war" du module bibliowebclient-webapp dans un serveur
+Déployez l'artefact "bibliowebclient-webapp-1.1-SNAPSHOT.war" du module bibliowebclient-webapp dans un serveur
 d'application Tomcat 9
 (!! Attention à utiliser un port différent du web service si serveur commun)
 
@@ -26,7 +26,7 @@ mot de passe: motdepasse
 Déploiement Batch
 -------------------
 
-Extraire le contenu du Zip "bibliowebclient-batch-1.0-SNAPSHOT-batch-app-dist.zip" contenu dans le dossier target du
+Extraire le contenu du Zip "bibliowebclient-batch-1.1-SNAPSHOT-batch-app-dist.zip" contenu dans le dossier target du
 module bibliowebclient-batch
 Cette archive à été généré par Maven.
 
