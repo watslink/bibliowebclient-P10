@@ -1,6 +1,6 @@
 package com.sd.oc.serviceproxy.usersecurityloginservice;
 
-import com.sd.oc.serviceproxy.generated.userAPI.User;
+import com.sd.oc.serviceproxy.generated.UserServiceAPI.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

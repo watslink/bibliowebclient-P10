@@ -17,23 +17,43 @@ import org.springframework.stereotype.Component;
 public class MailSenderLauncher {
 
     @Autowired
-    @Qualifier("mailsenderJob")
-    Job job;
+    @Qualifier("borrowingsenderJob")
+    Job borrowingSenderStep;
+
+    @Autowired
+    @Qualifier("reservationsenderJob")
+    Job reservationSenderJob;
 
     @Autowired
     JobLauncher jobLauncher;
 
-    @Scheduled(cron = "0 0 10 * * *")
-    public void schedule() {
+    @Scheduled(cron = "0 0 6 * * *")
+    public void scheduleBorrowing() {
         JobParameters parameters = new JobParametersBuilder()
                 .addLong("currentTime", System.currentTimeMillis())
                 .toJobParameters();
         try {
-            jobLauncher.run(job, parameters);
+            jobLauncher.run(borrowingSenderStep, parameters);
         } catch (JobExecutionAlreadyRunningException e) {
         } catch (JobRestartException e) {
         } catch (JobInstanceAlreadyCompleteException e) {
         } catch (JobParametersInvalidException e) {
         }
+
+    }
+
+    @Scheduled(cron = "0 0 6 * * *")
+    public void scheduleReservation() {
+        JobParameters parameters = new JobParametersBuilder()
+                .addLong("currentTime", System.currentTimeMillis())
+                .toJobParameters();
+        try {
+            jobLauncher.run(reservationSenderJob, parameters);
+        } catch (JobExecutionAlreadyRunningException e) {
+        } catch (JobRestartException e) {
+        } catch (JobInstanceAlreadyCompleteException e) {
+        } catch (JobParametersInvalidException e) {
+        }
+
     }
 }

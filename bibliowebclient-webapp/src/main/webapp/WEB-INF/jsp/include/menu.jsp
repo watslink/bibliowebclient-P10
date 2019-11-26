@@ -16,6 +16,7 @@
                         <li><a href="${pageContext.request.contextPath}/books">Livres</a>
                         </li>
                         <li><a href="${pageContext.request.contextPath}/borrowings">Mes Emprunts</a></li>
+                        <li><a href="${pageContext.request.contextPath}/reservationOfUser">Mes Réservations</a></li>
             </ul>
             <form class="navbar-form navbar-right inline-form">
                 <span class="glyphicon glyphicon-user"> <security:authentication property="principal.username"/> </span>

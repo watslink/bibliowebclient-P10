@@ -1,3 +1,4 @@
+<%@ page import="com.sd.oc.serviceproxy.generated.BookServiceAPI.Book" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@include file="./include/taglibs.jsp" %>
@@ -26,7 +27,13 @@
                 <td class="col-xs-3">${book.author}</td>
                 <td class="col-xs-2">${book.publishYear}</td>
                 <td class="col-xs-2">${book.nbPages}</td>
-                <td class="col-xs-2">${book.nbStock}</td>
+                <c:if test = "${book.nbStock!=0}">
+                <td class="col-xs-2">${book.nbStock}/${book.nbTotalExemplaire}</td>
+                </c:if>
+                <c:if test = "${book.nbStock==0}">
+                    <td class=" col-xs-2"><a href="${pageContext.request.contextPath}/reservation?bookId=${book.bookId}"
+                                             class="btn btn-primary">Réservation...</a></td>
+                </c:if>
             </tr>
         </c:forEach>
         </tbody>
