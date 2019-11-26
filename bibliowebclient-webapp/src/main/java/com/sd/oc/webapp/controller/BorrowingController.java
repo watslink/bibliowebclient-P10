@@ -1,10 +1,11 @@
 package com.sd.oc.webapp.controller;
 
 
-import com.sd.oc.serviceproxy.generated.borrowingAPI.Borrowing;
-import com.sd.oc.serviceproxy.generated.borrowingAPI.BorrowingServiceAPI;
-import com.sd.oc.serviceproxy.generated.userAPI.User;
-import com.sd.oc.serviceproxy.generated.userAPI.UserServiceAPI;
+
+import com.sd.oc.serviceproxy.generated.BorrowingServiceAPI.Borrowing;
+import com.sd.oc.serviceproxy.generated.BorrowingServiceAPI.BorrowingServiceAPI;
+import com.sd.oc.serviceproxy.generated.UserServiceAPI.User;
+import com.sd.oc.serviceproxy.generated.UserServiceAPI.UserServiceAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
